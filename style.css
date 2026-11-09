@@ -337,3 +337,23 @@ html {
     display: none; /* Boleh disesuaikan untuk menu telefon */
   }
 }
+/* TEMA TERANG (LIGHT MODE TOGGLE) */
+body.light-theme {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+body.light-theme .navbar {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid #e2e8f0;
+}
+
+body.light-theme .nav-links a,
+body.light-theme .brand-name,
+body.light-theme .content-heading {
+  color: #0f172a;
+}
+
+body.light-theme .nav-icon {
+  color: #475569;
+}
