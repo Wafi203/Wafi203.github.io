@@ -233,105 +233,122 @@
     </div>
   </div>
 
-  <!-- JAVASCRIPT UTAMA (KALIS RALAT) -->
+  <!-- JAVASCRIPT KALIS RALAT -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      
-      // 1. LIGHT / DARK MODE TOGGLE
-      const themeToggleBtn = document.getElementById('theme-toggle');
-      if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          document.body.classList.toggle('light-theme');
-          
-          if (document.body.classList.contains('light-theme')) {
+    (function () {
+      function initApp() {
+        // 1. LIGHT / DARK MODE TOGGLE & LOCALSTORAGE MEMORY
+        var themeToggleBtn = document.getElementById('theme-toggle');
+        
+        // Semak mod tersimpan
+        var savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'light') {
+          document.body.classList.add('light-theme');
+          if (themeToggleBtn) {
             themeToggleBtn.classList.remove('fa-regular', 'fa-moon');
             themeToggleBtn.classList.add('fa-solid', 'fa-sun');
-          } else {
-            themeToggleBtn.classList.remove('fa-solid', 'fa-sun');
-            themeToggleBtn.classList.add('fa-regular', 'fa-moon');
-          }
-        });
-      }
-
-      // 2. COMMAND PALETTE SEARCH MODAL
-      const searchBtn = document.getElementById('search-btn');
-      const searchModal = document.getElementById('search-modal');
-      const searchInput = document.getElementById('search-input');
-      const searchResults = document.querySelectorAll('.search-result-item');
-
-      function openSearch() {
-        if (searchModal) {
-          searchModal.classList.add('active');
-          if (searchInput) {
-            searchInput.value = '';
-            filterSearch('');
-            setTimeout(() => searchInput.focus(), 50);
           }
         }
-      }
 
-      function closeSearchModal() {
-        if (searchModal) {
-          searchModal.classList.remove('active');
+        if (themeToggleBtn) {
+          themeToggleBtn.onclick = function (e) {
+            e.preventDefault();
+            document.body.classList.toggle('light-theme');
+            
+            var isLight = document.body.classList.contains('light-theme');
+            if (isLight) {
+              themeToggleBtn.classList.remove('fa-regular', 'fa-moon');
+              themeToggleBtn.classList.add('fa-solid', 'fa-sun');
+              localStorage.setItem('theme', 'light');
+            } else {
+              themeToggleBtn.classList.remove('fa-solid', 'fa-sun');
+              themeToggleBtn.classList.add('fa-regular', 'fa-moon');
+              localStorage.setItem('theme', 'dark');
+            }
+          };
         }
-      }
 
-      if (searchBtn) {
-        searchBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          openSearch();
-        });
-      }
+        // 2. COMMAND PALETTE SEARCH MODAL LOGIC
+        var searchBtn = document.getElementById('search-btn');
+        var searchModal = document.getElementById('search-modal');
+        var searchInput = document.getElementById('search-input');
+        var searchResults = document.querySelectorAll('.search-result-item');
 
-      // Pintasan Kekunci (Ctrl+K / Cmd+K / Esc)
-      document.addEventListener('keydown', (e) => {
-        if ((e.ctrlKey || e.metaKey) && e.key && e.key.toLowerCase() === 'k') {
-          e.preventDefault();
-          if (searchModal && searchModal.classList.contains('active')) {
-            closeSearchModal();
-          } else {
+        function openSearch() {
+          if (searchModal) {
+            searchModal.classList.add('active');
+            if (searchInput) {
+              searchInput.value = '';
+              filterSearch('');
+              setTimeout(function () { searchInput.focus(); }, 50);
+            }
+          }
+        }
+
+        function closeSearchModal() {
+          if (searchModal) {
+            searchModal.classList.remove('active');
+          }
+        }
+
+        if (searchBtn) {
+          searchBtn.onclick = function (e) {
+            e.preventDefault();
             openSearch();
+          };
+        }
+
+        document.addEventListener('keydown', function (e) {
+          if ((e.ctrlKey || e.metaKey) && e.key && e.key.toLowerCase() === 'k') {
+            e.preventDefault();
+            if (searchModal && searchModal.classList.contains('active')) {
+              closeSearchModal();
+            } else {
+              openSearch();
+            }
           }
-        }
-        if (e.key === 'Escape' && searchModal && searchModal.classList.contains('active')) {
-          closeSearchModal();
-        }
-      });
-
-      // Tutup modal apabila klik di luar modal
-      if (searchModal) {
-        searchModal.addEventListener('click', (e) => {
-          if (e.target === searchModal) closeSearchModal();
-        });
-      }
-
-      // Penapisan Masa Nyata
-      if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-          filterSearch(e.target.value.toLowerCase().trim());
-        });
-      }
-
-      function filterSearch(query) {
-        searchResults.forEach(item => {
-          const keywords = item.getAttribute('data-keywords') || '';
-          const text = item.textContent || '';
-          if (keywords.toLowerCase().includes(query) || text.toLowerCase().includes(query)) {
-            item.style.display = 'flex';
-          } else {
-            item.style.display = 'none';
+          if (e.key === 'Escape' && searchModal && searchModal.classList.contains('active')) {
+            closeSearchModal();
           }
         });
+
+        if (searchModal) {
+          searchModal.onclick = function (e) {
+            if (e.target === searchModal) closeSearchModal();
+          };
+        }
+
+        if (searchInput) {
+          searchInput.oninput = function (e) {
+            filterSearch(e.target.value.toLowerCase().trim());
+          };
+        }
+
+        function filterSearch(query) {
+          searchResults.forEach(function (item) {
+            var keywords = item.getAttribute('data-keywords') || '';
+            var text = item.textContent || '';
+            if (keywords.toLowerCase().indexOf(query) !== -1 || text.toLowerCase().indexOf(query) !== -1) {
+              item.style.display = 'flex';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        }
+
+        searchResults.forEach(function (item) {
+          item.onclick = function () {
+            closeSearchModal();
+          };
+        });
       }
 
-      searchResults.forEach(item => {
-        item.addEventListener('click', () => {
-          closeSearchModal();
-        });
-      });
-
-    });
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initApp);
+      } else {
+        initApp();
+      }
+    })();
   </script>
 
 </body>
