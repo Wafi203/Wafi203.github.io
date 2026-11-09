@@ -10,7 +10,7 @@ html {
 }
 
 :root {
-  --bg-dark-green: #073b2e;       /* Hijau gelap utama kad */
+  --bg-dark-green: #073b2e;       /* Hijau gelap kad */
   --bg-darker: #042920;           /* Ton latar belakang utama */
   --text-white: #ffffff;
   --text-light-green: #d1fae5;
@@ -24,6 +24,7 @@ body {
   background-color: var(--bg-darker);
   color: var(--text-white);
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -33,17 +34,17 @@ body {
 }
 
 /* ================================================================= */
-/* NAVBAR (SOFT EMERALD MINT GLASS - LIGHT & MATCHING PROFILE) */
+/* NAVBAR */
 /* ================================================================= */
 .navbar {
-  background: rgba(236, 253, 245, 0.92); /* Hijau mint sangat lembut */
-  backdrop-filter: blur(12px);             /* Kesan kaca kabur moden */
+  background: rgba(236, 253, 245, 0.95); /* Mint lutsinar */
+  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  padding: 0.9rem 0;
+  padding: 0.8rem 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 2px solid rgba(16, 185, 129, 0.3); /* Garisan penegas emerald */
+  border-bottom: 2px solid rgba(16, 185, 129, 0.3);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -59,14 +60,9 @@ body {
 .brand-name {
   font-size: 1.2rem;
   font-weight: 700;
-  color: #064e3b; /* Hijau zamrud gelap */
+  color: #064e3b;
   text-decoration: none;
   letter-spacing: 0.8px;
-  transition: color 0.2s ease;
-}
-
-.brand-name:hover {
-  color: #10b981;
 }
 
 .nav-links {
@@ -77,12 +73,12 @@ body {
 
 .nav-links a {
   text-decoration: none;
-  color: #047857; /* Hijau medium selesa di mata */
+  color: #047857;
   font-weight: 600;
   font-size: 0.95rem;
   padding: 0.4rem 0.8rem;
   border-radius: 8px;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
 }
 
 .nav-links a:hover,
@@ -93,14 +89,45 @@ body {
 
 .nav-actions {
   display: flex;
-  gap: 1.2rem;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* BUTANG SEARCH COMMAND PALETTE */
+.search-trigger-btn {
+  background: rgba(4, 120, 87, 0.1);
+  border: 1px solid rgba(4, 120, 87, 0.25);
   color: #047857;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: all 0.2s ease;
+}
+
+.search-trigger-btn:hover {
+  background: rgba(4, 120, 87, 0.2);
+  color: #064e3b;
+}
+
+.search-shortcut {
+  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  font-weight: 600;
+  color: #064e3b;
 }
 
 .nav-icon {
-  font-size: 1.1rem;
-  transition: transform 0.2s ease, color 0.2s ease;
+  font-size: 1.15rem;
+  color: #047857;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .nav-icon:hover {
@@ -178,11 +205,12 @@ body {
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.08);
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .social-icons a:hover {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-2px);
 }
 
@@ -191,6 +219,7 @@ body {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1.2rem;
+  color: var(--text-white);
 }
 
 .bio-text {
@@ -220,7 +249,7 @@ body {
   background-color: #0d634e;
 }
 
-/* INFO GRID (INTERESTS & EDUCATION) */
+/* INFO GRID */
 .info-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -231,6 +260,7 @@ body {
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 1rem;
+  color: var(--text-white);
 }
 
 .interests-list {
@@ -266,9 +296,7 @@ body {
   color: var(--text-muted);
 }
 
-/* ================================================================= */
-/* BAHAGIAN KANDUNGAN TAMBAHAN (PROJECTS, SKILLS, EXP, CONTACT) */
-/* ================================================================= */
+/* SECTIONS */
 .section-container {
   padding: 3rem 1.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -288,12 +316,21 @@ body {
   margin-bottom: 1rem;
 }
 
+.project-item h3 {
+  color: var(--text-white);
+}
+
+.project-item p, .exp-desc {
+  color: #e2e8f0;
+}
+
 .project-link {
   color: var(--text-light-green);
   text-decoration: none;
   font-size: 0.9rem;
   display: inline-block;
   margin-top: 0.5rem;
+  font-weight: 500;
 }
 
 .skills-tags {
@@ -314,6 +351,7 @@ body {
 .exp-role {
   font-weight: 600;
   font-size: 1.1rem;
+  color: var(--text-white);
 }
 
 .exp-date {
@@ -322,8 +360,44 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.exp-school {
+  font-size: 0.9rem;
+  color: var(--text-light-green);
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+/* CONTACT LIST */
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+}
+
+.contact-icon {
+  color: var(--text-light-green);
+  margin-right: 0.6rem;
+  font-size: 1.1rem;
+}
+
+.contact-item a {
+  color: var(--text-white);
+  text-decoration: none;
+}
+
+.whatsapp-link {
+  color: var(--text-light-green) !important;
+  font-weight: 600;
+}
+
 /* ================================================================= */
-/* SEARCH MODAL OVERLAY (COMMAND PALETTE POPULAR APPS) */
+/* COMMAND PALETTE SEARCH MODAL (RAYCAST / SPOTLIGHT STYLE) */
 /* ================================================================= */
 .search-modal {
   position: fixed;
@@ -331,17 +405,17 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(2, 16, 12, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  padding-top: 10vh;
+  padding-top: 12vh;
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .search-modal.active {
@@ -350,34 +424,28 @@ body {
 }
 
 .search-modal-content {
-  background: #0f172a;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #092019;
+  border: 1px solid rgba(16, 185, 129, 0.25);
   width: 90%;
-  max-width: 580px;
-  border-radius: 16px;
-  padding: 1.25rem;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(16, 185, 129, 0.15);
-  transform: translateY(-20px) scale(0.96);
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  max-width: 600px;
+  border-radius: 14px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7), 0 0 30px rgba(16, 185, 129, 0.15);
+  overflow: hidden;
+  transform: scale(0.96) translateY(-10px);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .search-modal.active .search-modal-content {
-  transform: translateY(0) scale(1);
+  transform: scale(1) translateY(0);
 }
 
 .search-input-wrapper {
   display: flex;
   align-items: center;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 0.75rem 1rem;
+  padding: 1rem 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   gap: 0.8rem;
-}
-
-.search-input-wrapper:focus-within {
-  border-color: #10b981;
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+  background: rgba(0, 0, 0, 0.2);
 }
 
 .search-modal-icon {
@@ -391,7 +459,7 @@ body {
   border: none;
   outline: none;
   color: #ffffff;
-  font-size: 1rem;
+  font-size: 1.05rem;
   font-family: inherit;
 }
 
@@ -399,43 +467,101 @@ body {
   color: #64748b;
 }
 
-.close-search {
+.kbd-badge {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: #94a3b8;
-  font-size: 1.4rem;
-  cursor: pointer;
-  line-height: 1;
-  transition: color 0.2s ease;
+  padding: 0.15rem 0.45rem;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  font-weight: 600;
 }
 
-.close-search:hover {
+.search-results-list {
+  max-height: 340px;
+  overflow-y: auto;
+  padding: 0.6rem;
+}
+
+.search-category {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #10b981;
+  padding: 0.5rem 0.8rem 0.3rem 0.8rem;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 0.9rem;
+  border-radius: 8px;
+  text-decoration: none;
+  color: #e2e8f0;
+  transition: all 0.15s ease;
+}
+
+.search-result-item:hover {
+  background: rgba(16, 185, 129, 0.15);
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.search-result-item i {
+  font-size: 1.1rem;
+  color: #10b981;
+  width: 24px;
+  text-align: center;
+}
+
+.result-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.result-title {
+  font-weight: 600;
+  font-size: 0.95rem;
   color: #ffffff;
 }
 
-.search-results-hint {
-  margin-top: 0.8rem;
-  padding-left: 0.5rem;
-  color: #64748b;
+.result-desc {
   font-size: 0.8rem;
-}
-
-.search-results-hint strong {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 0.1rem 0.4rem;
-  border-radius: 4px;
   color: #94a3b8;
 }
 
-/* ================================================================= */
-/* TEMA TERANG (LIGHT MODE OVERRIDES) */
-/* ================================================================= */
-body.light-theme {
-  background-color: #f8fafc;
-  color: #0f172a;
+.search-modal-footer {
+  display: flex;
+  gap: 1.2rem;
+  padding: 0.6rem 1.2rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.75rem;
+  color: #64748b;
 }
 
+.search-modal-footer kbd {
+  background: rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  padding: 0.05rem 0.3rem;
+  border-radius: 3px;
+}
+
+/* ================================================================= */
+/* 🌟 SEPENUHNYA DIBETULKAN: LIGHT MODE HIGH-CONTRAST OVERRIDES 🌟 */
+/* ================================================================= */
+body.light-theme {
+  background-color: #f1f5f9; /* Kelabu terang lembut */
+  color: #0f172a;            /* Teks utama gelap tajam */
+}
+
+/* Navbar Light Mode */
 body.light-theme .navbar {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.95);
   border-bottom: 1px solid #cbd5e1;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 body.light-theme .brand-name {
@@ -448,62 +574,134 @@ body.light-theme .nav-links a {
 
 body.light-theme .nav-links a:hover,
 body.light-theme .nav-links a.active {
+  color: #047857;
+  background-color: rgba(4, 120, 87, 0.1);
+}
+
+body.light-theme .search-trigger-btn {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
   color: #0f172a;
-  background-color: rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme .search-shortcut {
+  background: #e2e8f0;
+  color: #0f172a;
 }
 
 body.light-theme .nav-icon {
-  color: #475569;
-}
-
-body.light-theme .content-heading,
-body.light-theme .section-title,
-body.light-theme .profile-name,
-body.light-theme .info-column h3,
-body.light-theme .edu-degree {
   color: #0f172a;
 }
 
-body.light-theme .bio-text,
-body.light-theme .profile-role,
-body.light-theme .profile-org,
-body.light-theme .exp-item p,
-body.light-theme .interests-list {
-  color: #334155 !important;
-}
-
+/* Kad & Kontrak Warna Light Mode */
 body.light-theme .hero-card,
 body.light-theme .project-item,
 body.light-theme .exp-item {
   background-color: #ffffff;
   border: 1px solid #e2e8f0;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 
+body.light-theme .section-title,
+body.light-theme .profile-name,
+body.light-theme .content-heading,
+body.light-theme .info-column h3,
+body.light-theme .project-item h3,
+body.light-theme .exp-role,
+body.light-theme .edu-degree {
+  color: #0f172a !important; /* Hitam/Kelabu Gelap Jelas */
+}
+
+body.light-theme .bio-text,
+body.light-theme .interests-list,
+body.light-theme .interests-list li,
+body.light-theme .project-item p,
+body.light-theme .exp-desc,
+body.light-theme .contact-item a {
+  color: #1e293b !important; /* Teks Perenggan Mudah Dibaca */
+}
+
+/* Warna Hijau Diterangkan untuk Latar Putih */
+body.light-theme .profile-role,
+body.light-theme .edu-icon,
+body.light-theme .edu-school,
+body.light-theme .profile-org,
+body.light-theme .exp-date,
+body.light-theme .exp-school,
+body.light-theme .contact-icon,
+body.light-theme .whatsapp-link,
+body.light-theme .project-link {
+  color: #047857 !important; /* Hijau Zamrud Gelap Jelas */
+}
+
+/* Ikon Sosial Light Mode */
+body.light-theme .social-icons a {
+  background-color: rgba(4, 120, 87, 0.1);
+  color: #047857;
+}
+
+body.light-theme .social-icons a:hover {
+  background-color: #047857;
+  color: #ffffff;
+}
+
+/* Tag Kemahiran Light Mode */
 body.light-theme .tag {
-  background-color: #e2e8f0;
-  color: #0f172a;
+  background-color: #f1f5f9;
+  color: #047857;
   border-color: #cbd5e1;
+  font-weight: 600;
 }
 
+/* Butang CV Light Mode */
+body.light-theme .cv-btn {
+  background-color: #047857;
+  color: #ffffff;
+  border: none;
+}
+
+body.light-theme .cv-btn:hover {
+  background-color: #065f46;
+}
+
+/* Command Palette Modal Light Mode */
 body.light-theme .search-modal-content {
   background: #ffffff;
-  border-color: #e2e8f0;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  border-color: #cbd5e1;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
 }
 
 body.light-theme .search-input-wrapper {
-  background: #f1f5f9;
-  border-color: #cbd5e1;
+  background: #f8fafc;
+  border-bottom-color: #e2e8f0;
 }
 
 body.light-theme #search-input {
   color: #0f172a;
 }
 
-/* ================================================================= */
-/* RESPONSIVE LAYOUT (UNTUK TELEFON) */
-/* ================================================================= */
+body.light-theme .search-result-item {
+  color: #334155;
+}
+
+body.light-theme .search-result-item:hover {
+  background: rgba(4, 120, 87, 0.08);
+}
+
+body.light-theme .result-title {
+  color: #0f172a;
+}
+
+body.light-theme .result-desc {
+  color: #64748b;
+}
+
+body.light-theme .search-modal-footer {
+  background: #f8fafc;
+  border-top-color: #e2e8f0;
+}
+
+/* RESPONSIVE LAYOUT */
 @media (max-width: 850px) {
   .hero-card {
     grid-template-columns: 1fr;
@@ -515,6 +713,6 @@ body.light-theme #search-input {
   }
 
   .nav-links {
-    display: none; /* Menyembunyikan menu di paparan telefon bimbit */
+    display: none;
   }
 }
