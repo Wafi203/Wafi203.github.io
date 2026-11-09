@@ -26,8 +26,8 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <i class="fa-solid fa-magnifying-glass nav-icon"></i>
-        <i class="fa-regular fa-moon nav-icon"></i>
+        <i class="fa-solid fa-magnifying-glass nav-icon" id="search-btn" style="cursor: pointer;"></i>
+        <i class="fa-regular fa-moon nav-icon" id="theme-toggle" style="cursor: pointer;"></i>
       </div>
     </div>
   </nav>
@@ -48,7 +48,7 @@
         <div class="social-icons">
           <a href="mailto:afifwafi@graduate.utm.my" title="Email"><i class="fa-solid fa-envelope"></i></a>
           <a href="https://github.com/Wafi203" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-          <a href="https://linkedin.com/in/Afif Wafi Bin Dahlan" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://linkedin.com/in/afif-wafi-bin-dahlan" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
           <a href="#" title="Twitter / X"><i class="fa-brands fa-x-twitter"></i></a>
           <a href="https://instagram.com/_4wafi._" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
         </div>
@@ -58,7 +58,7 @@
       <div class="profile-content">
         <h1 class="section-title">About Me</h1>
         <p class="bio-text">
-         Data Engineering student at UTM driven by a passion for transforming complex, unstructured data into clean, reliable pipelines. Currently focused on cloud infrastructure, data modeling, and building efficient system architectures.
+          Data Engineering student at UTM driven by a passion for transforming complex, unstructured data into clean, reliable pipelines. Currently focused on cloud infrastructure, data modeling, and building efficient system architectures.
         </p>
 
         <a href="CV.pdf" download class="cv-btn">
@@ -128,7 +128,7 @@
     </div>
   </section>
 
- <!-- EXPERIENCE SECTION -->
+  <!-- EXPERIENCE SECTION -->
   <section id="experience" class="section-container container">
     <h2 class="content-heading">Experience</h2>
     <div class="exp-item">
@@ -141,7 +141,7 @@
     </div>
   </section>
 
-<!-- CONTACT SECTION -->
+  <!-- CONTACT SECTION -->
   <section id="contact" class="section-container container">
     <h2 class="content-heading">Contact</h2>
 
@@ -166,8 +166,31 @@
     </div>
   </section>
 
-</body>
-</html>
-  </section>
+  <!-- JAVASCRIPT UNTUK ICON SEARCH & MOON -->
+  <script>
+    // FUNGSI DARK / LIGHT MODE TOGGLE
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    
+    themeToggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('light-theme');
+      
+      if (document.body.classList.contains('light-theme')) {
+        themeToggleBtn.classList.replace('fa-moon', 'fa-sun');
+      } else {
+        themeToggleBtn.classList.replace('fa-sun', 'fa-moon');
+      }
+    });
+
+    // FUNGSI CARIAN
+    const searchBtn = document.getElementById('search-btn');
+    
+    searchBtn.addEventListener('click', () => {
+      const query = prompt("Cari projek atau kemahiran:");
+      if (query) {
+        alert("Carian untuk: '" + query + "' sedang diproses...");
+      }
+    });
+  </script>
+
 </body>
 </html>
