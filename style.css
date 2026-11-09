@@ -256,7 +256,72 @@ body {
   .info-grid {
     grid-template-columns: 1fr;
   }
+/* ================================================================= */
+/* 🌟 SALIN & TAMPAL KOD CSS BAHARU INI (AT THE VERY BOTTOM) 🌟 */
+/* ================================================================= */
 
+/* Membuatkan skrol lancar apabila butang navbar ditekan */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Gaya untuk bahagian Projects, Skills, Experience, & Contact */
+.section-container {
+  padding: 3rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.content-heading {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--text-white);
+}
+
+.project-item, .exp-item {
+  background-color: var(--bg-dark-green);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.project-link {
+  color: var(--text-light-green);
+  text-decoration: none;
+  font-size: 0.9rem;
+  display: inline-block;
+  margin-top: 0.5rem;
+}
+
+.skills-tags {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background-color: var(--bg-dark-green);
+  color: var(--text-light-green);
+  padding: 0.4rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.exp-role {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.exp-date {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+/* ================================================================= */
+/* 🌟 AKHIR KOD CSS BAHARU 🌟 */
+/* ================================================================= */
   .nav-links {
     display: none; /* Boleh disesuaikan untuk menu telefon */
   }
