@@ -26,8 +26,8 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <i class="fa-solid fa-magnifying-glass nav-icon" id="search-btn" style="cursor: pointer;"></i>
-        <i class="fa-regular fa-moon nav-icon" id="theme-toggle" style="cursor: pointer;"></i>
+        <i class="fa-solid fa-magnifying-glass nav-icon" id="search-btn" title="Cari"></i>
+        <i class="fa-regular fa-moon nav-icon" id="theme-toggle" title="Tukar Tema"></i>
       </div>
     </div>
   </nav>
@@ -166,31 +166,44 @@
     </div>
   </section>
 
-  <!-- JAVASCRIPT UNTUK ICON SEARCH & MOON -->
+  <!-- SEARCH MODAL OVERLAY (GAYA APPS POPULAR) -->
+  <div id="search-modal" class="search-modal">
+    <div class="search-modal-content">
+      <div class="search-input-wrapper">
+        <i class="fa-solid fa-magnifying-glass search-modal-icon"></i>
+        <input type="text" id="search-input" placeholder="Cari projek, kemahiran, atau latar belakang..." autocomplete="off">
+        <span class="close-search" id="close-search">&times;</span>
+      </div>
+      <div class="search-results-hint">
+        <small>Tekan <strong>Esc</strong> atau butang <strong>&times;</strong> untuk tutup</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIK -->
   <script>
-    // FUNGSI DARK / LIGHT MODE TOGGLE
+    // 1. FUNGSI DARK / LIGHT MODE TOGGLE
     const themeToggleBtn = document.getElementById('theme-toggle');
     
     themeToggleBtn.addEventListener('click', () => {
       document.body.classList.toggle('light-theme');
       
       if (document.body.classList.contains('light-theme')) {
-        themeToggleBtn.classList.replace('fa-moon', 'fa-sun');
+        themeToggleBtn.classList.remove('fa-regular', 'fa-moon');
+        themeToggleBtn.classList.add('fa-solid', 'fa-sun');
       } else {
-        themeToggleBtn.classList.replace('fa-sun', 'fa-moon');
+        themeToggleBtn.classList.remove('fa-solid', 'fa-sun');
+        themeToggleBtn.classList.add('fa-regular', 'fa-moon');
       }
     });
 
-    // FUNGSI CARIAN
+    // 2. FUNGSI SEARCH MODAL OVERLAY
     const searchBtn = document.getElementById('search-btn');
-    
-    searchBtn.addEventListener('click', () => {
-      const query = prompt("Cari projek atau kemahiran:");
-      if (query) {
-        alert("Carian untuk: '" + query + "' sedang diproses...");
-      }
-    });
-  </script>
+    const searchModal = document.getElementById('search-modal');
+    const closeSearch = document.getElementById('close-search');
+    const searchInput = document.getElementById('search-input');
 
-</body>
-</html>
+    // Buka Modal Carian
+    searchBtn.addEventListener('click', () => {
+      searchModal.classList.add('active');
+      searchInput.focus();
