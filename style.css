@@ -1,6 +1,7 @@
 html {
   scroll-behavior: smooth;
 }
+
 /* RESET & VARIABLES */
 * {
   margin: 0;
@@ -9,13 +10,11 @@ html {
 }
 
 :root {
-  --bg-dark-green: #073b2e;       /* Hijau gelap utama seperti gambar */
-  --bg-darker: #042920;           /* Ton latar belakang lebih gelap */
+  --bg-dark-green: #073b2e;       /* Hijau gelap utama kad */
+  --bg-darker: #042920;           /* Ton latar belakang utama */
   --text-white: #ffffff;
   --text-light-green: #d1fae5;
   --text-muted: #a7f3d0;
-  --nav-bg: #ffffff;
-  --nav-text: #1f2937;
   --accent-btn: #0a4f3e;
   --font: 'Inter', sans-serif;
 }
@@ -34,17 +33,18 @@ body {
 }
 
 /* ================================================================= */
-/* NAVBAR (VERSI DARK EMERALD / GLASSMORPHISM) */
+/* NAVBAR (SOFT EMERALD MINT GLASS - LIGHT & MATCHING PROFILE) */
 /* ================================================================= */
 .navbar {
-  background-color: rgba(4, 41, 32, 0.85); /* Hijau gelap lutsinar */
-  backdrop-filter: blur(12px);              /* Kesan kaca/blur serap latar */
+  background: rgba(236, 253, 245, 0.92); /* Hijau mint sangat lembut */
+  backdrop-filter: blur(12px);             /* Kesan kaca kabur moden */
   -webkit-backdrop-filter: blur(12px);
-  padding: 1rem 0;
+  padding: 0.9rem 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Garisan sempadan halus */
+  border-bottom: 2px solid rgba(16, 185, 129, 0.3); /* Garisan penegas emerald */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
 .nav-container {
@@ -57,51 +57,60 @@ body {
 }
 
 .brand-name {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  color: var(--text-white);
+  color: #064e3b; /* Hijau zamrud gelap */
   text-decoration: none;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
+  transition: color 0.2s ease;
+}
+
+.brand-name:hover {
+  color: #10b981;
 }
 
 .nav-links {
   display: flex;
   list-style: none;
-  gap: 1.8rem;
+  gap: 1.5rem;
 }
 
 .nav-links a {
   text-decoration: none;
-  color: #a7f3d0; /* Hijau pastel lembut */
-  font-weight: 500;
+  color: #047857; /* Hijau medium selesa di mata */
+  font-weight: 600;
   font-size: 0.95rem;
-  transition: all 0.2s ease;
-  opacity: 0.8;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  transition: all 0.25s ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: #ffffff; /* Tukar putih terang apabila dituding/aktif */
-  opacity: 1;
-  font-weight: 600;
+  color: #064e3b;
+  background-color: rgba(16, 185, 129, 0.15);
 }
 
 .nav-actions {
   display: flex;
   gap: 1.2rem;
-  color: var(--text-muted);
+  color: #047857;
   cursor: pointer;
 }
 
 .nav-icon {
-  transition: color 0.2s ease;
+  font-size: 1.1rem;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .nav-icon:hover {
-  color: var(--text-white);
+  color: #064e3b;
+  transform: scale(1.15);
 }
 
+/* ================================================================= */
 /* HERO / ABOUT SECTION */
+/* ================================================================= */
 .hero-section {
   padding: 3rem 0;
 }
@@ -257,26 +266,9 @@ body {
   color: var(--text-muted);
 }
 
-/* RESPONSIVE LAYOUT (UNTUK TELEFON) */
-@media (max-width: 850px) {
-  .hero-card {
-    grid-template-columns: 1fr;
-    padding: 2rem 1.5rem;
-  }
-  
-  .info-grid {
-    grid-template-columns: 1fr;
-  }
 /* ================================================================= */
-/* 🌟 SALIN & TAMPAL KOD CSS BAHARU INI (AT THE VERY BOTTOM) 🌟 */
+/* BAHAGIAN KANDUNGAN TAMBAHAN (PROJECTS, SKILLS, EXP, CONTACT) */
 /* ================================================================= */
-
-/* Membuatkan skrol lancar apabila butang navbar ditekan */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Gaya untuk bahagian Projects, Skills, Experience, & Contact */
 .section-container {
   padding: 3rem 1.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -331,29 +323,198 @@ html {
 }
 
 /* ================================================================= */
-/* 🌟 AKHIR KOD CSS BAHARU 🌟 */
+/* SEARCH MODAL OVERLAY (COMMAND PALETTE POPULAR APPS) */
 /* ================================================================= */
-  .nav-links {
-    display: none; /* Boleh disesuaikan untuk menu telefon */
-  }
+.search-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 10vh;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
-/* TEMA TERANG (LIGHT MODE TOGGLE) */
+
+.search-modal.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.search-modal-content {
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  width: 90%;
+  max-width: 580px;
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(16, 185, 129, 0.15);
+  transform: translateY(-20px) scale(0.96);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.search-modal.active .search-modal-content {
+  transform: translateY(0) scale(1);
+}
+
+.search-input-wrapper {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  gap: 0.8rem;
+}
+
+.search-input-wrapper:focus-within {
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.search-modal-icon {
+  color: #10b981;
+  font-size: 1.1rem;
+}
+
+#search-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+#search-input::placeholder {
+  color: #64748b;
+}
+
+.close-search {
+  color: #94a3b8;
+  font-size: 1.4rem;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.close-search:hover {
+  color: #ffffff;
+}
+
+.search-results-hint {
+  margin-top: 0.8rem;
+  padding-left: 0.5rem;
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.search-results-hint strong {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+  color: #94a3b8;
+}
+
+/* ================================================================= */
+/* TEMA TERANG (LIGHT MODE OVERRIDES) */
+/* ================================================================= */
 body.light-theme {
   background-color: #f8fafc;
   color: #0f172a;
 }
 
 body.light-theme .navbar {
-  background-color: rgba(255, 255, 255, 0.9);
-  border-bottom: 1px solid #e2e8f0;
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom: 1px solid #cbd5e1;
 }
 
-body.light-theme .nav-links a,
-body.light-theme .brand-name,
-body.light-theme .content-heading {
+body.light-theme .brand-name {
   color: #0f172a;
+}
+
+body.light-theme .nav-links a {
+  color: #334155;
+}
+
+body.light-theme .nav-links a:hover,
+body.light-theme .nav-links a.active {
+  color: #0f172a;
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 body.light-theme .nav-icon {
   color: #475569;
+}
+
+body.light-theme .content-heading,
+body.light-theme .section-title,
+body.light-theme .profile-name,
+body.light-theme .info-column h3,
+body.light-theme .edu-degree {
+  color: #0f172a;
+}
+
+body.light-theme .bio-text,
+body.light-theme .profile-role,
+body.light-theme .profile-org,
+body.light-theme .exp-item p,
+body.light-theme .interests-list {
+  color: #334155 !important;
+}
+
+body.light-theme .hero-card,
+body.light-theme .project-item,
+body.light-theme .exp-item {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+body.light-theme .tag {
+  background-color: #e2e8f0;
+  color: #0f172a;
+  border-color: #cbd5e1;
+}
+
+body.light-theme .search-modal-content {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+body.light-theme .search-input-wrapper {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+body.light-theme #search-input {
+  color: #0f172a;
+}
+
+/* ================================================================= */
+/* RESPONSIVE LAYOUT (UNTUK TELEFON) */
+/* ================================================================= */
+@media (max-width: 850px) {
+  .hero-card {
+    grid-template-columns: 1fr;
+    padding: 2rem 1.5rem;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-links {
+    display: none; /* Menyembunyikan menu di paparan telefon bimbit */
+  }
 }
