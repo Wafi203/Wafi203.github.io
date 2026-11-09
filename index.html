@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AFIF WAFI | Portfolio</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Font Awesome untuk ikon -->
+  <!-- Font Awesome 6.5.1 -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,11 +26,11 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav-actions">
-        <button class="search-trigger-btn" id="search-btn" title="Cari (Ctrl+K)">
+        <button type="button" class="search-trigger-btn" id="search-btn" title="Cari (Ctrl+K)">
           <i class="fa-solid fa-magnifying-glass"></i>
           <span class="search-shortcut">⌘K</span>
         </button>
-        <i class="fa-regular fa-moon nav-icon" id="theme-toggle" title="Tukar Tema"></i>
+        <i class="fa-regular fa-moon nav-icon" id="theme-toggle" title="Tukar Tema" style="cursor: pointer;"></i>
       </div>
     </div>
   </nav>
@@ -115,208 +115,4 @@
       <div class="project-item">
         <h3>GitHub Portfolio Web</h3>
         <p>Laman web portfolio peribadi yang dibina menggunakan HTML5 dan CSS3.</p>
-        <a href="https://github.com/Wafi203/Wafi203.github.io" target="_blank" class="project-link">Lihat Code <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS SECTION -->
-  <section id="skills" class="section-container container">
-    <h2 class="content-heading">Skills</h2>
-    <div class="skills-tags">
-      <span class="tag">HTML5</span>
-      <span class="tag">CSS3</span>
-      <span class="tag">JavaScript</span>
-      <span class="tag">Git & GitHub</span>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE SECTION -->
-  <section id="experience" class="section-container container">
-    <h2 class="content-heading">Experience</h2>
-    <div class="exp-item">
-      <div class="exp-role">1st Year Data Engineering Student</div>
-      <div class="exp-date">2024 – Present</div>
-      <p class="exp-school">Universiti Teknologi Malaysia (UTM)</p>
-      <p class="exp-desc">
-        Currently building core foundations in computer science, database management systems, object-oriented programming, and introductory data engineering tools.
-      </p>
-    </div>
-  </section>
-
-  <!-- CONTACT SECTION -->
-  <section id="contact" class="section-container container">
-    <h2 class="content-heading">Contact</h2>
-
-    <div class="contact-info-list">
-      <!-- EMAIL -->
-      <p class="contact-item">
-        <i class="fa-solid fa-envelope contact-icon"></i>
-        <a href="mailto:afifwafi@graduate.utm.my">afifwafi@graduate.utm.my</a>
-      </p>
-
-      <!-- TELEFON -->
-      <p class="contact-item">
-        <i class="fa-solid fa-phone contact-icon"></i>
-        <a href="tel:+601163362601">+60 11-6336 2601</a>
-      </p>
-
-      <!-- WHATSAPP DIRECT LINK -->
-      <p class="contact-item">
-        <i class="fa-brands fa-whatsapp contact-icon"></i>
-        <a href="https://wa.me/601163362601" target="_blank" class="whatsapp-link">WhatsApp</a>
-      </p>
-    </div>
-  </section>
-
-  <!-- COMMAND PALETTE SEARCH MODAL -->
-  <div id="search-modal" class="search-modal">
-    <div class="search-modal-content">
-      
-      <!-- INPUT BAR -->
-      <div class="search-input-wrapper">
-        <i class="fa-solid fa-magnifying-glass search-modal-icon"></i>
-        <input type="text" id="search-input" placeholder="Taip untuk mencari (cth: Bio, Projects, UTM, Skills)..." autocomplete="off">
-        <kbd class="kbd-badge">ESC</kbd>
-      </div>
-
-      <!-- RESULTS CONTAINER -->
-      <div class="search-results-list" id="search-results">
-        <!-- ITEM SECTIONS -->
-        <div class="search-category">Halaman</div>
-        <a href="#about" class="search-result-item" data-keywords="bio about me background afif wafi">
-          <i class="fa-solid fa-user"></i>
-          <div class="result-text">
-            <span class="result-title">About / Bio</span>
-            <span class="result-desc">Maklumat peribadi & latar belakang pendidikan</span>
-          </div>
-        </a>
-
-        <a href="#projects" class="search-result-item" data-keywords="projects projek github html css web">
-          <i class="fa-solid fa-folder-open"></i>
-          <div class="result-text">
-            <span class="result-title">Projects</span>
-            <span class="result-desc">GitHub Portfolio Web & hasil kerja</span>
-          </div>
-        </a>
-
-        <a href="#skills" class="search-result-item" data-keywords="skills kemahiran html css javascript git github">
-          <i class="fa-solid fa-code"></i>
-          <div class="result-text">
-            <span class="result-title">Skills</span>
-            <span class="result-desc">HTML5, CSS3, JavaScript, Git & GitHub</span>
-          </div>
-        </a>
-
-        <a href="#experience" class="search-result-item" data-keywords="experience pengalaman student utm 1st year data engineering">
-          <i class="fa-solid fa-briefcase"></i>
-          <div class="result-text">
-            <span class="result-title">Experience</span>
-            <span class="result-desc">Pelajar Tahun 1 Data Engineering UTM</span>
-          </div>
-        </a>
-
-        <a href="#contact" class="search-result-item" data-keywords="contact hubungi email phone whatsapp no telefon">
-          <i class="fa-solid fa-paper-plane"></i>
-          <div class="result-text">
-            <span class="result-title">Contact</span>
-            <span class="result-desc">Email, Nombor Telefon & Direct WhatsApp</span>
-          </div>
-        </a>
-      </div>
-
-      <!-- FOOTER HINT -->
-      <div class="search-modal-footer">
-        <span><kbd>↑</kbd> <kbd>↓</kbd> Navigasi</span>
-        <span><kbd>↵</kbd> Pilih</span>
-        <span><kbd>ESC</kbd> Tutup</span>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- JAVASCRIPT LOGIK -->
-  <script>
-    // 1. LIGHT / DARK MODE TOGGLE
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    
-    themeToggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('light-theme');
-      
-      if (document.body.classList.contains('light-theme')) {
-        themeToggleBtn.classList.remove('fa-regular', 'fa-moon');
-        themeToggleBtn.classList.add('fa-solid', 'fa-sun');
-      } else {
-        themeToggleBtn.classList.remove('fa-solid', 'fa-sun');
-        themeToggleBtn.classList.add('fa-regular', 'fa-moon');
-      }
-    });
-
-    // 2. COMMAND PALETTE SEARCH LOGIC
-    const searchBtn = document.getElementById('search-btn');
-    const searchModal = document.getElementById('search-modal');
-    const searchInput = document.getElementById('search-input');
-    const searchResults = document.querySelectorAll('.search-result-item');
-
-    function openSearch() {
-      searchModal.classList.add('active');
-      searchInput.value = '';
-      filterSearch('');
-      setTimeout(() => searchInput.focus(), 50);
-    }
-
-    function closeSearchModal() {
-      searchModal.classList.remove('active');
-    }
-
-    // Event Buka
-    searchBtn.addEventListener('click', openSearch);
-
-    // Pintasan Kekunci (Ctrl+K / Cmd+K / Esc)
-    document.addEventListener('keydown', (e) => {
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
-        e.preventDefault();
-        if (searchModal.classList.contains('active')) {
-          closeSearchModal();
-        } else {
-          openSearch();
-        }
-      }
-      if (e.key === 'Escape' && searchModal.classList.contains('active')) {
-        closeSearchModal();
-      }
-    });
-
-    // Tutup bila klik luar modal
-    searchModal.addEventListener('click', (e) => {
-      if (e.target === searchModal) closeSearchModal();
-    });
-
-    // Tapisan Carian Masa Nyata (Real-time Filtering)
-    searchInput.addEventListener('input', (e) => {
-      filterSearch(e.target.value.toLowerCase().trim());
-    });
-
-    function filterSearch(query) {
-      searchResults.forEach(item => {
-        const keywords = item.getAttribute('data-keywords').toLowerCase();
-        const text = item.textContent.toLowerCase();
-        
-        if (keywords.includes(query) || text.includes(query)) {
-          item.style.display = 'flex';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    }
-
-    // Tutup modal automatik bila pautan carian ditekan
-    searchResults.forEach(item => {
-      item.addEventListener('click', () => {
-        closeSearchModal();
-      });
-    });
-  </script>
-
-</body>
-</html>
+        <a href="https://github.com/Wafi203/Wafi203.github.io" target="_blank" class="project-link">Lihat Code <i class="fa-solid fa-arrow-
