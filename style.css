@@ -10,7 +10,7 @@ html {
 }
 
 :root {
-  --bg-dark-green: #073b2e;       /* Hijau gelap kad */
+  --bg-dark-green: #073b2e;       /* Hijau gelap utama kad */
   --bg-darker: #042920;           /* Ton latar belakang utama */
   --text-white: #ffffff;
   --text-light-green: #d1fae5;
@@ -95,7 +95,7 @@ body {
 
 /* BUTANG SEARCH COMMAND PALETTE */
 .search-trigger-btn {
-  background: rgba(4, 120, 87, 0.1);
+  background: rgba(4, 120, 87, 0.12);
   border: 1px solid rgba(4, 120, 87, 0.25);
   color: #047857;
   padding: 0.4rem 0.75rem;
@@ -110,13 +110,13 @@ body {
 }
 
 .search-trigger-btn:hover {
-  background: rgba(4, 120, 87, 0.2);
+  background: rgba(4, 120, 87, 0.22);
   color: #064e3b;
 }
 
 .search-shortcut {
   font-size: 0.75rem;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.8);
   padding: 0.1rem 0.4rem;
   border-radius: 4px;
   font-weight: 600;
@@ -124,10 +124,10 @@ body {
 }
 
 .nav-icon {
-  font-size: 1.15rem;
+  font-size: 1.2rem;
   color: #047857;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
 .nav-icon:hover {
@@ -397,7 +397,7 @@ body {
 }
 
 /* ================================================================= */
-/* COMMAND PALETTE SEARCH MODAL (RAYCAST / SPOTLIGHT STYLE) */
+/* COMMAND PALETTE SEARCH MODAL */
 /* ================================================================= */
 .search-modal {
   position: fixed;
@@ -550,11 +550,11 @@ body {
 }
 
 /* ================================================================= */
-/* 🌟 SEPENUHNYA DIBETULKAN: LIGHT MODE HIGH-CONTRAST OVERRIDES 🌟 */
+/* LIGHT MODE HIGH-CONTRAST OVERRIDES */
 /* ================================================================= */
 body.light-theme {
-  background-color: #f1f5f9; /* Kelabu terang lembut */
-  color: #0f172a;            /* Teks utama gelap tajam */
+  background-color: #f1f5f9; /* Kelabu terang mudah dibaca */
+  color: #0f172a;            /* Teks utama hitam/kelabu gelap */
 }
 
 /* Navbar Light Mode */
@@ -593,12 +593,12 @@ body.light-theme .nav-icon {
   color: #0f172a;
 }
 
-/* Kad & Kontrak Warna Light Mode */
+/* Kad & Kontras Warna Light Mode */
 body.light-theme .hero-card,
 body.light-theme .project-item,
 body.light-theme .exp-item {
   background-color: #ffffff;
-  border: 1px solid #e2e8f0;
+  border: 1px solid #cbd5e1;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
 }
 
@@ -609,7 +609,7 @@ body.light-theme .info-column h3,
 body.light-theme .project-item h3,
 body.light-theme .exp-role,
 body.light-theme .edu-degree {
-  color: #0f172a !important; /* Hitam/Kelabu Gelap Jelas */
+  color: #0f172a !important; /* Kelabu Sangat Gelap / Hitam */
 }
 
 body.light-theme .bio-text,
@@ -618,10 +618,10 @@ body.light-theme .interests-list li,
 body.light-theme .project-item p,
 body.light-theme .exp-desc,
 body.light-theme .contact-item a {
-  color: #1e293b !important; /* Teks Perenggan Mudah Dibaca */
+  color: #1e293b !important; /* Tulisan Kontras Tinggi */
 }
 
-/* Warna Hijau Diterangkan untuk Latar Putih */
+/* Penyerlah Hijau Zamrud dalam Light Mode */
 body.light-theme .profile-role,
 body.light-theme .edu-icon,
 body.light-theme .edu-school,
@@ -631,7 +631,7 @@ body.light-theme .exp-school,
 body.light-theme .contact-icon,
 body.light-theme .whatsapp-link,
 body.light-theme .project-link {
-  color: #047857 !important; /* Hijau Zamrud Gelap Jelas */
+  color: #047857 !important;
 }
 
 /* Ikon Sosial Light Mode */
